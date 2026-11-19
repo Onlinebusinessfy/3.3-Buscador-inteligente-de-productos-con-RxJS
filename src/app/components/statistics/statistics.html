@@ -1,0 +1,70 @@
+<section class="statistics-section" id="estadisticas">
+
+  <div class="statistics-heading">
+    <div>
+      <h2>Resumen del inventario</h2>
+      <p>Indicadores generales de los productos registrados.</p>
+    </div>
+  </div>
+
+  @if (estadisticas$ | async; as stats) {
+
+    <div class="statistics-grid">
+
+      <!-- Total de productos -->
+      <article class="stat-card blue">
+
+        <div class="stat-top">
+          <span class="stat-label">Total de productos</span>
+          <span class="stat-icon">📦</span>
+        </div>
+
+        <h3>{{ stats.total }}</h3>
+        <p>Productos registrados</p>
+
+      </article>
+
+      <!-- Precio promedio -->
+      <article class="stat-card green">
+
+        <div class="stat-top">
+          <span class="stat-label">Precio promedio</span>
+          <span class="stat-icon">💰</span>
+        </div>
+
+        <h3>{{ stats.promedio | currency:'MXN':'symbol-narrow':'1.2-2' }}</h3>
+        <p>Valor promedio del catálogo</p>
+
+      </article>
+
+      <!-- Precio mínimo -->
+      <article class="stat-card orange">
+
+        <div class="stat-top">
+          <span class="stat-label">Precio mínimo</span>
+          <span class="stat-icon">📉</span>
+        </div>
+
+        <h3>{{ stats.minimo | currency:'MXN':'symbol-narrow':'1.2-2' }}</h3>
+        <p>Producto de menor precio</p>
+
+      </article>
+
+      <!-- Precio máximo -->
+      <article class="stat-card purple">
+
+        <div class="stat-top">
+          <span class="stat-label">Precio máximo</span>
+          <span class="stat-icon">📈</span>
+        </div>
+
+        <h3>{{ stats.maximo | currency:'MXN':'symbol-narrow':'1.2-2' }}</h3>
+        <p>Producto de mayor precio</p>
+
+      </article>
+
+    </div>
+
+  }
+
+</section>

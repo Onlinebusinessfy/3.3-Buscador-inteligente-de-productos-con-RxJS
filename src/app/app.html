@@ -1,1 +1,56 @@
-<app-product-search></app-product-search>
+<!-- Encabezado principal -->
+<app-header></app-header>
+
+<div class="dashboard-layout">
+
+  <!-- Menú lateral -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Contenido principal -->
+  <main class="main-content" id="dashboard">
+
+    <div class="welcome-section">
+      <div>
+        <h1>Panel de administración</h1>
+        <p>Administra tus productos y consulta el estado de tu inventario.</p>
+      </div>
+
+      <span class="welcome-badge">Inventario activo</span>
+    </div>
+
+    <!-- Estadísticas -->
+    <app-statistics></app-statistics>
+
+    <!-- Productos -->
+    <section class="content-section" id="productos">
+
+      <div class="section-heading">
+        <div>
+          <h2>Gestión de productos</h2>
+          <p>Consulta, busca, filtra y organiza tus productos.</p>
+        </div>
+      </div>
+
+      <app-product-search></app-product-search>
+
+      <app-product-list></app-product-list>
+
+    </section>
+
+    <!-- Registro de productos -->
+    <section class="content-section registration-section" id="registro">
+
+      <div class="section-heading">
+        <div>
+          <h2>Registrar producto</h2>
+          <p>Agrega nuevos productos al inventario.</p>
+        </div>
+      </div>
+
+      <app-product-form></app-product-form>
+
+    </section>
+
+  </main>
+
+</div>

@@ -1,0 +1,106 @@
+<section class="form-section" id="registro">
+
+  <div class="form-header">
+    <div>
+      <h2>Registrar nuevo producto</h2>
+      <p>Completa los datos para agregar un producto al catálogo.</p>
+    </div>
+
+    <span class="form-icon">＋</span>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="registrarProducto()">
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label for="nombre">Nombre del producto *</label>
+
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          placeholder="Ej. Laptop HP"
+        >
+
+        @if (formulario.controls.nombre.touched &&
+        formulario.controls.nombre.invalid) {
+          <small>El nombre es obligatorio.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="categoria">Categoría *</label>
+
+        <select id="categoria" formControlName="categoria">
+          <option value="Tecnología">Tecnología</option>
+          <option value="Ropa">Ropa</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Deportes">Deportes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="precio">Precio (MXN) *</label>
+
+        <input
+          id="precio"
+          type="number"
+          formControlName="precio"
+          min="0.01"
+          step="0.01"
+          placeholder="Ej. 1500"
+        >
+
+        @if (formulario.controls.precio.touched &&
+        formulario.controls.precio.invalid) {
+          <small>Ingresa un precio mayor a cero.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">URL de imagen</label>
+
+        <input
+          id="imagen"
+          type="url"
+          formControlName="imagen"
+          placeholder="https://..."
+        >
+      </div>
+
+      <div class="form-group full-width">
+        <label for="descripcion">Descripción *</label>
+
+        <textarea
+          id="descripcion"
+          formControlName="descripcion"
+          rows="3"
+          placeholder="Describe las características del producto..."
+        ></textarea>
+
+        @if (formulario.controls.descripcion.touched &&
+        formulario.controls.descripcion.invalid) {
+          <small>La descripción es obligatoria.</small>
+        }
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+
+      <button type="submit" class="submit-button">
+        ＋ Registrar producto
+      </button>
+
+    </div>
+
+    @if (mensaje) {
+      <div class="form-message">
+        {{ mensaje }}
+      </div>
+    }
+
+  </form>
+
+</section>
